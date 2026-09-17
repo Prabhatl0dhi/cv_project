@@ -1,0 +1,56 @@
+import os
+
+# frame size
+FRAME_WIDTH = 960
+FRAME_HEIGHT = 540
+
+# blur and clahe
+GAUSSIAN_KERNEL = (7, 7)
+GAUSSIAN_SIGMA = 1.5
+USE_CLAHE = True
+CLAHE_CLIP_LIMIT = 2.0
+CLAHE_GRID_SIZE = (8, 8)
+
+# morphology kernels
+OPEN_KERNEL_SIZE = (5, 5)
+CLOSE_KERNEL_SIZE = (9, 9)
+OPEN_ITERATIONS = 2
+CLOSE_ITERATIONS = 2
+
+# background subtractor
+MOG2_HISTORY = 500
+MOG2_VAR_THRESHOLD = 50.0
+DETECT_SHADOWS = True
+
+# contour limits
+MIN_CONTOUR_AREA = 1800
+MAX_CONTOUR_AREA = 80000
+MIN_BBOX_WIDTH = 30
+MIN_BBOX_HEIGHT = 30
+
+# optical flow
+KLT_MAX_CORNERS = 25
+KLT_QUALITY = 0.03
+KLT_MIN_DIST = 7
+KLT_WIN_SIZE = (15, 15)
+
+# tracking and line
+MAX_DISAPPEARED = 15
+MAX_TRACK_DISTANCE = 90.0
+COUNTING_LINE_Y = 320
+LINE_P1 = (40, COUNTING_LINE_Y)
+LINE_P2 = (920, COUNTING_LINE_Y)
+
+MIN_TRACK_FRAMES = 5
+MIN_MOVEMENT_DIST = 15.0
+
+# output paths
+DEFAULT_CSV_PATH = os.path.join("output", "traffic_analytics_report.csv")
+DEFAULT_VIDEO_PATH = "sample_traffic.mp4"
+
+# colors
+COLOR_GREEN = (0, 255, 128)
+COLOR_RED = (0, 0, 255)
+COLOR_YELLOW = (0, 215, 255)
+COLOR_CYAN = (255, 255, 0)
+COLOR_ORANGE = (0, 165, 255)
