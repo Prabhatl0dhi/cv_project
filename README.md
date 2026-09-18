@@ -152,8 +152,8 @@ Select [1-4] (default 1):
 
 ### 1. Clone the Public Repository
 ```bash
-git clone https://github.com/{your-username}/{repo-name}.git
-cd {repo-name}
+git clone https://github.com/prabhatl0dhi/cv_project.git
+cd cv_project
 ```
 
 ### 2. Create and Activate a Virtual Environment
@@ -184,7 +184,7 @@ pip install -r requirements.txt
 
 The project is **100% executable from the command line** with both headless (server-friendly) and interactive desktop GUI modes. You can run via the direct scripts (`run.bat` / `./run.sh`) or directly using `python main.py`.
 
-### 1. Headless Execution (Automated Server Test — No GUI)
+### 1. Headless Execution 
 Runs the entire pipeline in the terminal without opening a GUI window, generates the annotated result video, and exports telemetry to CSV:
 ```bash
 # Windows
@@ -193,7 +193,7 @@ run.bat --no-display --output-video output/annotated_traffic.mp4
 python main.py --no-display --output-video output/annotated_traffic.mp4
 ```
 
-### 2. Interactive GUI Mode (Default Synthetic Feed)
+### 2. Interactive GUI Mode 
 Runs with full visual overlays, picture-in-picture mask thumbnail, and real-time HUD:
 ```bash
 # Windows
@@ -208,7 +208,7 @@ python main.py
 ```bash
 run.bat --input "sample_traffic.mp4" --save-csv "output/traffic_analytics_report.csv"
 ```
-*(Handles file names with spaces automatically).*
+
 
 ### 4. Run with Live Connected Webcam
 ```bash
@@ -246,29 +246,28 @@ When running in GUI mode, the following keyboard controls are active:
 ```
 cv_project/
 ├── src/
-│   ├── __init__.py            # Package initialization
-│   ├── preprocessing.py       # CLAHE, Gaussian blur, morphological cleaning
-│   ├── motion_tracker.py      # MOG2 background subtractor, KLT optical flow, Centroid tracker
-│   ├── analytics.py           # Virtual tripwire line crossing, direction logic, CSV exporter
-│   └── visualizer.py          # Bounding box HUD, optical flow arrows, telemetry banner
+│   ├── __init__.py           
+│   ├── preprocessing.py       
+│   ├── motion_tracker.py      
+│   ├── analytics.py           
+│   └── visualizer.py          
 ├── output/
-│   ├── .gitkeep                      # Git directory preservation
-│   ├── traffic_analytics_report.csv  # Auto-generated CSV telemetry log
-│   └── annotated_traffic.mp4         # Recorded annotated video stream
-├── .gitignore                 # Git ignore rules
-├── config.py                  # Global hyperparameters (resolutions, kernels, thresholds)
-├── main.py                    # Main CLI entrypoint
-├── run.bat                    # 1-Click Windows execution script
-├── run.sh                     # 1-Click Linux / macOS execution script
-├── run_headless.bat           # 1-Click Windows headless automated run script
-├── run_headless.sh            # 1-Click Linux / macOS headless automated run script
-├── sample_traffic.mp4         # Default benchmark test video
-├── Sysvideo 4K 8 Megapixel  IP Camera Demo traffic car_2160p.mp4  # High-resolution traffic video
-├── PROJECT_REPORT.docx        # Formatted academic project report (Word Document)
-├── PROJECT_REPORT.md          # Complete project report in Markdown format
-├── requirements.txt           # Python dependency specifications
-└── README.md                  # Comprehensive setup and usage documentation
-```
+│   ├── .gitkeep                      
+│   ├── traffic_analytics_report.csv  
+│   └── annotated_traffic.mp4         
+├── .gitignore                
+├── config.py                  
+├── main.py                    
+├── run.bat                    
+├── run.sh                     
+├── run_headless.bat           
+├── run_headless.sh            
+├── sample_traffic.mp4         
+├── Sysvideo 4K 8 Megapixel  IP Camera Demo traffic car_2160p.mp4  
+├── PROJECT_REPORT.docx        
+├── PROJECT_REPORT.md          
+├── requirements.txt       
+└── README.md                 
 
 ---
 
@@ -299,23 +298,5 @@ vehicle_id,timestamp,frame_number,direction,speed_px_frame,trajectory_length
 
 ---
 
-## 📄 Project Reports (.docx & .md)
 
-Two complete report formats are provided in the repository:
-1. **`PROJECT_REPORT.docx`**: Fully formatted Microsoft Word Document containing university title header, abstract, syllabus module mapping, mathematical formulations (CLAHE, MOG2, KLT, CCW line crossing), experimental results, and designated screenshot callout boxes (`[📸 FIGURE X: INSERT SCREENSHOT HERE]`).
-2. **`PROJECT_REPORT.md`**: Complete markdown report for browser and GitHub viewing.
 
----
-
-## ✅ Evaluation & Submission Checklist
-
-- [x] **Relevance:** Designed strictly for Computer Vision (Motion Segmentation, Optical Flow, Tracking, CLAHE).
-- [x] **Visibility:** Set repository visibility to **Public** before submission.
-- [x] **Repository URL:** Submit the root repository URL strictly formatted as:
-  ```
-  https://github.com/{github-username}/{repo-name}
-  ```
-  *(Do **NOT** submit URLs with `/tree/` or `/blob/`)*.
-- [x] **README.md:** Step-by-step instructions for environment setup, dependencies, CLI execution, and troubleshooting.
-- [x] **CLI Executable:** Fully functional via terminal with `--no-display` headless mode support.
-- [x] **Project Report:** `PROJECT_REPORT.docx` and `PROJECT_REPORT.md` generated with screenshot placeholders.

@@ -1,7 +1,6 @@
 # Real-Time Intelligent Traffic & Motion Analytics Using Classical Computer Vision
-**Course:** Computer Vision (6th Semester Evaluation)  
+**Course:** Computer Vision 
 **Domain:** Video Analytics, Motion Segmentation & Object Tracking  
-**Repository Visibility:** Public GitHub Repository (Strictly CLI Executable)  
 
 ---
 
@@ -12,15 +11,9 @@ The processing pipeline integrates Contrast Limited Adaptive Histogram Equalizat
 
 ---
 
-## 1. Introduction & Course Syllabus Mapping
+## 1. Introduction
 
 Automated video surveillance and traffic flow monitoring form the cornerstone of modern smart city infrastructure. While deep learning architectures (e.g., YOLO, Mask R-CNN) provide high detection accuracy, their deployment on edge devices is constrained by high memory footprints, power consumption, and dependency overheads. This project demonstrates how foundational Computer Vision principles can be synthesized into a high-performance, edge-deployable traffic analytics engine.
-
-### Course Syllabus Alignment
-- **Module 1 – Image Preprocessing & Enhancement:** Spatial Gaussian blurring for sensor noise reduction, LAB color-space separation, and Contrast Limited Adaptive Histogram Equalization (CLAHE) for handling adverse lighting and shadow variations.
-- **Module 2 – Motion Analysis & Segmentation:** Adaptive Mixture of Gaussians (MOG2) background subtraction, dynamic shadow detection, and morphological kernel operations (Opening & Closing) for noise suppression.
-- **Module 3 – Feature Detection & Optical Flow:** Shi-Tomasi corner detection (*Good Features to Track*) and pyramidal Lucas-Kanade (KLT) optical flow to compute sparse motion field vectors.
-- **Module 4 – Object Tracking & Video Analytics:** Euclidean distance-based multi-object centroid tracking, state management (creation, update, disappearance, deregistration), and vector cross-product line-crossing intersection for bidirectional counting.
 
 ---
 
@@ -176,64 +169,7 @@ pip install -r requirements.txt
 
 ---
 
-## 6. Visualizations & Screenshot Placeholders
-
-> [!NOTE]
-> Below are the designated placeholder sections for project screenshots. In the companion Word report (`PROJECT_REPORT.docx`), formatted visual boxes are ready for direct image insertion.
-
-```
-+-------------------------------------------------------------------------+
-| [FIGURE 1: Multi-Vehicle Tracking with Centroids & Breadcrumb Trails]    |
-| Description: Live annotated feed showing bounding boxes, IDs, centroids |
-|              and motion history trails.                                 |
-|                                                                         |
-| 👉 [ INSERT SCREENSHOT HERE: Vehicle Detection & Tracking GUI ] 👈       |
-+-------------------------------------------------------------------------+
-```
-
-```
-+-------------------------------------------------------------------------+
-| [FIGURE 2: MOG2 Foreground Mask & Morphological Cleanup]                |
-| Description: Picture-in-picture foreground binary mask with shadow     |
-|              suppression and morphological opening/closing.             |
-|                                                                         |
-| 👉 [ INSERT SCREENSHOT HERE: Binary Foreground Mask Pipeline ] 👈       |
-+-------------------------------------------------------------------------+
-```
-
-```
-+-------------------------------------------------------------------------+
-| [FIGURE 3: Lucas-Kanade (KLT) Optical Flow Motion Vectors]              |
-| Description: Cyan corner feature points and magenta displacement arrows |
-|              computed on detected vehicle ROIs.                         |
-|                                                                         |
-| 👉 [ INSERT SCREENSHOT HERE: KLT Optical Flow Vectors Overlay ] 👈      |
-+-------------------------------------------------------------------------+
-```
-
-```
-+-------------------------------------------------------------------------+
-| [FIGURE 4: Real-Time Telemetry HUD & Virtual Tripwire Counting Line]    |
-| Description: Top telemetry banner displaying live FPS, total count,     |
-|              IN/OUT counts, and flashing line crossing detection.       |
-|                                                                         |
-| 👉 [ INSERT SCREENSHOT HERE: Telemetry HUD & Tripwire Line ] 👈         |
-+-------------------------------------------------------------------------+
-```
-
-```
-+-------------------------------------------------------------------------+
-| [FIGURE 5: Exported CSV Telemetry Dataset in Spreadsheet Viewer]        |
-| Description: Spreadsheet view of output/traffic_analytics_report.csv   |
-|              containing vehicle ID, timestamps, directions, speeds.     |
-|                                                                         |
-| 👉 [ INSERT SCREENSHOT HERE: CSV Telemetry Spreadsheet View ] 👈        |
-+-------------------------------------------------------------------------+
-```
-
----
-
-## 7. Edge-Case Handling & Robustness
+## 6. Edge-Case Handling & Robustness
 
 1. **Shadow Suppression:** Cast vehicle shadows on asphalt often cause bounding boxes to merge or distort. The MOG2 shadow detection routine tags shadow pixels with intensity value 127. Thresholding pixels above 250 effectively strips cast shadows while preserving the vehicle body.
 2. **Transient Occlusions & Track Continuity:** When vehicles pass behind road signs or experience momentary detection dropouts, the Centroid Tracker retains the vehicle's track state for up to `MAX_DISAPPEARED` (15) frames before deregistration, preventing ID fragmentation.
@@ -241,7 +177,7 @@ pip install -r requirements.txt
 
 ---
 
-## 8. Conclusion & Future Scope
+## 7. Conclusion & Future Scope
 
 This project successfully designed and demonstrated an end-to-end Classical Computer Vision pipeline for real-time traffic monitoring. By systematically combining CLAHE contrast normalization, MOG2 background modeling, morphological transformations, Shi-Tomasi corner extraction, Lucas-Kanade optical flow, and Euclidean centroid tracking, the system achieves over 45+ FPS processing speed and 95%+ counting accuracy on standard hardware without deep learning dependencies.
 
@@ -252,7 +188,7 @@ This project successfully designed and demonstrated an end-to-end Classical Comp
 
 ---
 
-## 9. References
+## 8. References
 1. Z. Zivkovic, "Improved adaptive Gaussian mixture model for background subtraction," *IEEE ICPR*, 2004.
 2. B. D. Lucas and T. Kanade, "An iterative image registration technique with an application to stereo vision," *IJCAI/IW*, 1981.
 3. J. Shi and C. Tomasi, "Good features to track," *IEEE CVPR*, 1994.
